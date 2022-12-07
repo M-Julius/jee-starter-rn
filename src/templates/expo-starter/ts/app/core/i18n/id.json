@@ -1,0 +1,12 @@
+{
+  "signIn": "Masuk",
+  "signUp": "Daftar",
+  "logout": "Keluar",
+  "delete": "Hapus",
+  "back": "Kembali",
+  "confirm_logout": "Apakah kamu yakin ingin keluar?",
+  "quickLogin": "Masuk Cepat",
+  "or": "atau",
+  "and": "dan",
+  "show_all": "Lihat Semua"
+}

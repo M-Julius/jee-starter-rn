@@ -1,0 +1,26 @@
+import {TypedNavigator} from '@react-navigation/native';
+import React from 'react';
+import ScreenTransitions from '~/app/core/component/animations/ScreenTransitions';
+import <%= name %> from '../screens/<%= name %>';
+import Screens from './Screens';
+
+function getNavigation(Root: TypedNavigator<any, any, any, any, any>) {
+  return [
+    <Root.Screen
+      name={Screens.<%= name %>.KEY}
+      component={<%= name %>}
+      key={Screens.<%= name %>.KEY}
+      options={{
+        title: Screens.<%= name %>.TITLE,
+        headerShown: false,
+        ...ScreenTransitions.bottomsheet,
+      }}
+    />,
+  ];
+}
+
+const <%= name %>Navigation = {
+  getNavigation,
+};
+
+export default <%= name %>Navigation;
