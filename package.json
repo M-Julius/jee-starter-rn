@@ -1,9 +1,11 @@
 {
-  "name": "jee-starter-rn",
+  "name": "@jul.dev/jee-starter-rn",
   "version": "1.0.0",
   "description": "Make simple setup new project with starter kit jee-starter-rn",
   "main": "index.js",
-  "bin": "index.js",
+  "bin": {
+    "jee-starter-rn": "index.js"
+  },
   "author": "M-Julius",
   "license": "MIT",
   "scripts": {
@@ -21,6 +23,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/M-Julius/jee-starter-rn"
-  }
+    "url": "git+https://github.com/M-Julius/jee-starter-rn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/M-Julius/jee-starter-rn/issues"
+  },
+  "homepage": "https://github.com/M-Julius/jee-starter-rn#readme"
 }
