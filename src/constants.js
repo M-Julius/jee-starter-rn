@@ -4,7 +4,6 @@ const yargs = require("yargs");
 const TEMPLATE_LIST = ["react-native (typescript)", "expo (typescript)"];
 
 const REACT_DEFAULT_DEPEDENCY = [
-  "@react-native-async-storage/async-storage",
   "@react-native-community/netinfo", 
   "@react-navigation/native", 
   "@react-navigation/stack", 
@@ -16,36 +15,47 @@ const REACT_DEFAULT_DEPEDENCY = [
   "mobx-react-lite",
   "mobx-state-tree",
   "react-native-gesture-handler",
+  "react-native-mmkv",
   "react-native-reanimated",
   "react-native-root-toast",
   "react-native-safe-area-context",
   "react-native-screens",
+  "react-native-use-modal@https://github.com/M-Julius/react-native-use-modal.git",
   "react-native-vector-icons",
   "yup"
 ].join(" ");
 
 const EXPO_DEFAULT_DEPEDENCY = [
-  "@react-native-community/async-storage",
   "@react-native-community/netinfo",
   "@react-navigation/native",
   "@react-navigation/stack",
   "apisauce",
+  "async-mutex",
   "expo-font",
   "expo-status-bar",
+  "formik",
   "i18n-js",
   "mobx",
   "mobx-react-lite",
   "mobx-state-tree",
   "react-native-gesture-handler",
   "react-native-logs",
+  "react-native-mmkv",
+  "react-native-reanimated",
+  "react-native-root-toast",
   "react-native-safe-area-context",
   "react-native-screens",
-  "react-native-svg"
+  "react-native-use-modal@https://github.com/M-Julius/react-native-use-modal.git",
+  "yup",
 ].join(" ");
 
 const DEV_DEFAULT_DEPEDENCY = [
+  "reactotron-mst",
   "reactotron-react-native",
-  "reactotron-redux",
+  "babel-plugin-root-import",
+  "babel-plugin-inline-dotenv",
+  "@types/react-native-vector-icons",
+  "dotenv",
 ].join(" ");
 
 

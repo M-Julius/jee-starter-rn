@@ -18,7 +18,7 @@ You can access it without installing anything globally using ```npx```
 ```$ npx jee-starter-rn```
 
 - set name your project (ex: StarterAppRn)
-- choices your template (ex: react-native (typescript))
+- choices your template (ex: react-native)
 
 # Generator
 generator options, on root project

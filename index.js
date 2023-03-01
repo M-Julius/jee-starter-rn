@@ -106,11 +106,8 @@ function createNativeApp({ projectName, choicesTemplate, task, ctx }) {
    * if it use typescript, set the init command for setup with typescript mode, else setup with default mode javascript
    */
   switch (choicesTemplate) {
-    case TEMPLATE_LIST[0]:
-      cmd = `npx react-native init ${projectName} --template react-native-template-typescript --skip-install`;
-      break;
     case TEMPLATE_LIST[1]:
-      cmd = `npx create-expo-app ${projectName} -t expo-template-blank-typescript`;
+    cmd = `npx create-expo-app ${projectName} -t expo-template-blank-typescript`;
       break;
     default:
       cmd = `npx react-native init ${projectName} --template react-native-template-typescript --skip-install`;
@@ -155,10 +152,6 @@ function addDependencyPackage(options) {
   let appDepedency;
   let devDepedency;
   switch (options.choicesTemplate) {
-    case TEMPLATE_LIST[0]:
-      appDepedency = REACT_DEFAULT_DEPEDENCY;
-      devDepedency = DEV_DEFAULT_DEPEDENCY;
-      break;
     case TEMPLATE_LIST[1]:
       appDepedency = EXPO_DEFAULT_DEPEDENCY;
       devDepedency = DEV_EXPO_DEFAULT_DEPEDENCY;
@@ -211,9 +204,6 @@ function copyStarterKit(options) {
   // switch directory path template
   let template;
   switch (options.choicesTemplate) {
-    case TEMPLATE_LIST[0]:
-      template = "react-native-starter/ts/*";
-      break;
     case TEMPLATE_LIST[1]:
       template = "expo-starter/ts/*";
       break;
