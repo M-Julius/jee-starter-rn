@@ -1,4 +1,6 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {MMKV} from 'react-native-mmkv';
+
+const storage = new MMKV();
 
 /**
  * Loads a string from storage.
@@ -7,7 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
  */
 async function loadString(key: string): Promise<string | null> {
   try {
-    return await AsyncStorage.getItem(key);
+    return storage.getString(key) ?? null;
   } catch {
     // not sure why this would fail... even reading the RN docs I'm unclear
     return null;
@@ -22,7 +24,7 @@ async function loadString(key: string): Promise<string | null> {
  */
 async function saveString(key: string, value: string): Promise<boolean> {
   try {
-    await AsyncStorage.setItem(key, value);
+    await storage.set(key, value);
     return true;
   } catch {
     return false;
@@ -36,7 +38,7 @@ async function saveString(key: string, value: string): Promise<boolean> {
  */
 async function load(key: string): Promise<any | null> {
   try {
-    const almostThere = await AsyncStorage.getItem(key);
+    const almostThere = await storage.getString(key);
     return JSON.parse(almostThere ?? '');
   } catch {
     return null;
@@ -51,7 +53,7 @@ async function load(key: string): Promise<any | null> {
  */
 async function save(key: string, value: any): Promise<boolean> {
   try {
-    await AsyncStorage.setItem(key, JSON.stringify(value));
+    await storage.set(key, JSON.stringify(value));
     return true;
   } catch {
     return false;
@@ -65,7 +67,7 @@ async function save(key: string, value: any): Promise<boolean> {
  */
 async function remove(key: string): Promise<void> {
   try {
-    await AsyncStorage.removeItem(key);
+    await storage.delete(key);
   } catch {
     // continue regardless of error
   }
@@ -76,12 +78,17 @@ async function remove(key: string): Promise<void> {
  */
 async function clear(): Promise<void> {
   try {
-    await AsyncStorage.clear();
+    await storage.clearAll();
   } catch {
     // continue regardless of error
   }
 }
 
 export default {
-  loadString, saveString, load, save, remove, clear,
+  loadString,
+  saveString,
+  load,
+  save,
+  remove,
+  clear,
 };

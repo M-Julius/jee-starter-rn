@@ -1,7 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
+import {ModalProvider} from 'react-native-use-modal';
 import RootNavigation from './config/RootNavigation';
-// import {initFonts} from './static/fonts';
 import {RootStore, RootStoreProvider, setupRootStore} from './store';
 import {setTopLevelNavigation, useNavigationPersistence} from './utils/navigation-utils';
 
@@ -16,7 +16,6 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
-        // await initFonts(); // expo
       setupRootStore().then(setRootStore);
     })();
   }, []);
@@ -29,8 +28,12 @@ export default function App() {
         ref={ref => setTopLevelNavigation(ref)}
         initialState={initialNavigationState}
         onStateChange={onNavigationStateChange}
-        >
-        <RootNavigation />
+      >
+        {/* 
+        // @ts-ignore */}
+        <ModalProvider>
+            <RootNavigation />
+        </ModalProvider>
       </NavigationContainer>
     </RootStoreProvider>
   );

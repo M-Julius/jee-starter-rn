@@ -12,19 +12,16 @@ export async function handleResponse<T>(
   try {
     const result = await request();
     __DEV__ && console.log('RESPONSE REQUEST : ', result);
-    if (
-      !result.ok ||
-      (result.data?.metadata?.response_code !== '000' &&
-        !result.config?.url?.includes('google'))
-    ) {
+    if (!result.ok)
+    {
       return new Either({
         left: {
           message:
-            result.data?.metadata?.message ??
+            result.data?.message ??
             result.originalError?.message ??
             '',
           name: result?.problem ?? 'Failed Request',
-          statusCode: result.data?.metadata?.response_code ?? '0',
+          statusCode: result.status ?? 0,
           data: result.data,
         },
       });

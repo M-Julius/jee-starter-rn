@@ -1,5 +1,6 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
+import {ModalProvider} from 'react-native-use-modal';
 import RootNavigation from './config/RootNavigation';
 import {initFonts} from './static/fonts';
 import {RootStore, RootStoreProvider, setupRootStore} from './store';
@@ -29,8 +30,12 @@ export default function App() {
         ref={ref => setTopLevelNavigation(ref)}
         initialState={initialNavigationState}
         onStateChange={onNavigationStateChange}
-        >
-        <RootNavigation />
+      >
+        {/* 
+        // @ts-ignore */}
+        <ModalProvider>
+            <RootNavigation />
+        </ModalProvider>
       </NavigationContainer>
     </RootStoreProvider>
   );
